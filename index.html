@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #222;
+            color: #e5e5e5;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo .aru-gaming {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rgb-animation 5s linear infinite;
+        }
+
+        @keyframes rgb-animation {
+            0% {
+                background-position: 300% 0;
+            }
+
+            50% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 300% 0;
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #e5e5e5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007ced;
+        }
+
+        .togglebtn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        .togglebtn span {
+            display: block;
+            background-color: #007ced;
+            margin: 5px 0;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 15px solid #444;
+            box-shadow: 5px 7px 25px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+        }
+
+        .profile-img-container img:hover {
+            transform: scale(1.2);
+        }
+
+        h1 {
+            color: #007ced;
+            font-size: 3rem;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                display: none;
+                gap: 1.5rem;
+                background: #333;
+                padding: 20px;
+                position: absolute;
+                top: 100px;
+                right: 20px;
+                border-radius: 10px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .togglebtn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 1280px; max-width: 95%; margin: 0 auto; padding: 0 20px;">
+        <header>
+            <div class="logo">
+                <div class="aru-gaming">Aru Gaming Portfolio</div>
+            </div>
+            <div class="togglebtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="navlinks">
+                <a href="index.html">Home</a>
+                <a href="mywork.html">My Projects </a> 
+            </nav>
+        </header>
+
+        <div class="profile-container">
+            <div class="profile-img-container">
+                <img src="images/me.jpg" alt="profile pic">
+            </div>
+            <div style="max-width: 500px; display: flex; flex-direction: column;">
+                <h5>Hi I'm a <span class="input" style="color: #007ced;"></span></h5>
+                <h1>Arjon Christian Manzano</h1>
+                <p>I am a <span style="color: #007ced;">Frontend Developer</span> and passionate about <span style="color: #007ced;">Website UI</span>. I specialize in designing and developing modern, responsive websites using HTML, CSS, and JavaScript. I am also working on <span style="color: #007ced;">programming projects</span>, exploring various technologies.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Typed.js for typing text effect -->
+    <script>
+        // Toggle navbar for mobile
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
+
+        togglebtn.addEventListener("click", function () {
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        });
+
+        // Typed.js typing effect
+        var typed = new Typed(".input", {
+            strings: ["Frontend Developer", "UX Designer", "Web Developer"],
+            typedSpeed: 70,
+            backSpeed: 55,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
